@@ -1,36 +1,44 @@
-require 'bundler/capistrano'
-require 'capistrano-unicorn'
 
-set :application, "splash"
-set :repository,  "git@github.com:jeremyby/splash.git"
+set :application, 'splash'
+set :repo_url, 'git@github.com:jeremyby/splash.git'
+
 set :branch, "master"
-set :deploy_to, "/var/www/spash"
-set :keep_releases, 3
 
+set :deploy_to, "/var/www/splash"
 set :scm, :git
-set :user, "deployer"
-set :use_sudo, false
-set :deploy_via, :remote_cache
 
-default_run_options[:pty] = true
-default_run_options[:shell] = '/bin/bash -l'
+# set :format, :pretty
+# set :log_level, :debug
+set :pty, true
 
+# set :linked_files, %w{config/database.yml}
+# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-server "edinburgh", :app, :web, :db, :primary => true
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :keep_releases, 5
 
-# role :web, "ec2-54-241-119-74.us-west-1.compute.amazonaws.com"                          # Your HTTP server, Apache/etc
-# role :app, "ec2-54-241-119-74.us-west-1.compute.amazonaws.com"                          # This may be the same as your `Web` server
-# role :db,  "ec2-54-241-119-74.us-west-1.compute.amazonaws.com", :primary => true       # This is where Rails migrations will run
-# role :db,  "your slave db-server here"
+namespace :deploy do
 
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      # execute :touch, release_path.join('tmp/restart.txt')
+    end
+  end
 
-after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
-after 'deploy:restart', 'unicorn:restart'   # app preloaded
-after 'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
+  end
 
-# if you want to clean up old releases on each deploy uncomment this:
-after "deploy:restart", "deploy:cleanup"
+  after :finishing, 'deploy:cleanup'
 
+end
 
 namespace :rake do  
   desc "Run a task on a remote server."  
@@ -39,3 +47,5 @@ namespace :rake do
     run("cd #{deploy_to}/current; bundle exec rake #{ENV['task']} RAILS_ENV=production")  
   end  
 end
+
+
