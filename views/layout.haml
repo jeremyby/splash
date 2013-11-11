@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title= t('title')
+    %link{rel: 'stylesheet', href: '/stylesheets/style.css'}
+  %body
+    .inner
+      %header
+        - if session[:notice]
+          = session[:notice]
+      = yield
+    %script(src='/javascripts/jquery.js')
+    %script(src='/javascripts/default.js')
+    

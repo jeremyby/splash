@@ -1,0 +1,19 @@
+
+.msg
+  %h1
+    - if flash[:notice]
+      = flash[:notice]
+    - else
+      Like to Understand the Others on this planet?
+  
+  .form
+    %h2 Contr.ee is coming soon.
+    %p Country border, nationality or language should not keep people from understanding each other. We are working hard to make it happen.
+  
+    %form(method='post' action='/contact')
+      .line
+        %input(type='text' name='contact[email]' id='email')
+        %label(id='label') Your email address
+        %input(type='submit' value='Get Informed' id='submit')
+#earth
+

@@ -1,0 +1,130 @@
+body
+  position: relative
+ 
+  line-height: 1.625em
+  font: 100%  "Helvetica Neue", Helvetica, "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif
+  font-weight: 300
+  background: black
+  
+  color: #f0f0f0
+  overflow: hidden 
+  
+  .inner
+    width: 1024px
+    margin: 0 auto
+    
+    min-height: 700px
+  
+  .msg
+    position: relative
+    margin-top: 250px
+    
+    h1,
+    h2
+      margin: 0
+
+    h1
+      padding: 0 0 15px 50px
+      text-align: center
+      font:
+        weight: 100
+        size: 2.8em
+      
+    h2
+      font:
+        weight: 300
+        size: 1.3em
+        
+      span
+        border-bottom: 2px solid white
+
+    
+    
+    .form
+      position: absolute
+      width: 320px
+      top: 300px
+      left: 400px
+      
+      h2
+        color: #ccc
+      
+      p
+        color: #bbb
+        margin: 0
+        padding: 5px 1px
+        font-size: 0.8125em
+        line-height: 1.6em
+        
+      
+      .line
+        position: relative
+        
+        #email
+          width: 180px
+          line-height: 22px
+          padding: 0 5px
+          background: #eee
+          border: none
+          color: #444
+          -moz-box-shadow: #444 1px 1px 2px inset
+          -webkit-box-shadow: #444 1px 1px 2px inset
+          box-shadow: #444 1px 1px 2px inset
+          
+          
+          &.error
+            background: #FF968F
+            
+        #label
+          position: absolute
+          top: 6px
+          left: 6px
+          color: #aaa
+          font-size: 13px
+          
+          &.light
+            color: #ccc
+          
+        #submit
+          position: relative
+          top: 1px
+          
+          font:
+            size: 14px
+            family: "Helvetica Neue", Helvetica, "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif
+          padding: 4px 15px 3px 15px
+          display: inline-block
+          cursor: pointer
+          -moz-border-radius: 4px
+          -webkit-border-radius: 4px
+          border-radius: 4px
+          -moz-box-shadow: #5E83DF 0 1px 3px
+          -webkit-box-shadow: #5E83DF 0 1px 3px
+          box-shadow: #5E83DF 0 1px 3px
+          background-color: #286adf
+          border: 0
+          color: white
+          
+          &:hover
+            background-color: #1f5ecf
+          
+        
+      
+  #earth
+    position: absolute
+    bottom: 60px
+    
+    z-index: -1
+    
+    height: 600px
+    width: 1024px
+    
+    background:  transparent url('/images/earth.png') top center no-repeat
+    
+    .form
+      position: absolute
+      bottom: 300px
+      width: 1024px
+      text-align: center
+      
+      
