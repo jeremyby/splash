@@ -28,20 +28,20 @@ rails_env = ENV['RAILS_ENV'] || 'production'
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "#{ @path }/shared/sockets/unicorn.sock", :backlog => 64
+listen "#{ @path }/tmp/unicorn.sock", :backlog => 64
 # listen 8080, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
 
 # feel free to point this anywhere accessible on the filesystem
-pid "#{ @path }/shared/pids/unicorn.pid"
+pid "#{ @path }/tmp/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "#{ @path }/shared/log/unicorn.stderr.log"
-stdout_path "#{ @path }/shared/log/unicorn.stdout.log"
+stderr_path "#{ @path }/tmp/unicorn.stderr.log"
+stdout_path "#{ @path }/tmp/unicorn.stdout.log"
 
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
