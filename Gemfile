@@ -14,6 +14,12 @@ gem 'geoip'
 gem "sass"
 gem 'rack-coffee'
 
+
+group :development do
+  gem 'therubyracer'
+end
+
+
 # other dependencies
 gem 'thin'
 gem 'unicorn'
