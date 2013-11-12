@@ -42,7 +42,8 @@ class Splash < Sinatra::Base
     if contact.save
       flash[:notice] = 'Submission Successful. Thank you.'
     else
-      flash[:notice] = 'Fail. Something went wrong. Please try again.'
+      flash[:notice] = "Email #{contact.errors.messages[:email].first}. Please try again."
+      # flash[:notice] = 'Fail. Something went wrong. Please try again.'
     end
     
     redirect to('/')

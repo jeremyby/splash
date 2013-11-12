@@ -41,5 +41,8 @@ $(document).ready ->
     reset_field($(this))
     $(this).next().addClass('light')
     
+  $('#label').click ->
+    $('#email').focus()
+    
   $('#email').blur (e) ->
     $(this).next().removeClass('light')

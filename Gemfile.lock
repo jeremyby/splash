@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/capistrano/rbenv.git
-  revision: 362dbc02ef963c91425767e09b4848ff7be5132b
-  specs:
-    capistrano-rbenv (0.0.1)
-      capistrano
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -21,14 +14,6 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.4)
-    capistrano (3.0.1)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 0.0.23)
-    capistrano-bundler (1.0.0)
-      capistrano (>= 3.0.0.pre)
-    capistrano-rails (1.0.0)
-      capistrano
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -42,15 +27,13 @@ GEM
       tilt
     i18n (0.6.5)
     kgio (2.8.1)
+    libv8 (3.16.14.3)
     listen (1.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     multi_json (1.8.2)
     mysql2 (0.3.14)
-    net-scp (1.1.2)
-      net-ssh (>= 2.6.5)
-    net-ssh (2.7.0)
     rack (1.5.2)
     rack-coffee (1.0.2)
       coffee-script
@@ -66,6 +49,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    ref (1.0.5)
     rerun (0.8.2)
       listen (~> 1.0.3)
     sass (3.2.12)
@@ -76,18 +60,14 @@ GEM
     sinatra-activerecord (1.2.3)
       activerecord (>= 3.0)
       sinatra (~> 1.0)
-    sshkit (1.1.0)
-      net-scp
-      net-ssh
-      term-ansicolor
-    term-ansicolor (1.2.2)
-      tins (~> 0.8)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.1)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
     tilt (1.4.1)
-    tins (0.13.1)
     tzinfo (0.3.38)
     unicorn (4.7.0)
       kgio (~> 2.6)
@@ -99,10 +79,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 3.0)
-  capistrano (~> 3.0)
-  capistrano-bundler
-  capistrano-rails
-  capistrano-rbenv!
   geoip
   haml
   mysql2
@@ -113,5 +89,6 @@ DEPENDENCIES
   sass
   sinatra
   sinatra-activerecord
+  therubyracer
   thin
   unicorn
