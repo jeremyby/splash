@@ -6,7 +6,7 @@ require 'sinatra/activerecord/rake'
  
 task(:environment) do
   env = ENV["RACK_ENV"] ? ENV["RACK_ENV"] : "development"
-  ActiveRecord::Base.establish_connection(YAML::load_file('config.yml')['database'][env])
+  ActiveRecord::Base.establish_connection(YAML::load_file('database.yml')['database'][env])
 end
  
 task(:migrate => :environment) do
