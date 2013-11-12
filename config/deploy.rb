@@ -1,4 +1,7 @@
 
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+set :rbenv_ruby, '2.0.0-p247'
+
 set :application, 'splash'
 set :repo_url, 'git@github.com:jeremyby/splash.git'
 
@@ -9,12 +12,12 @@ set :scm, :git
 
 # set :format, :pretty
 # set :log_level, :debug
-set :pty, true
+# set :pty, true
 
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+# set :default_env, { path: "/usr/local/bin/:$PATH" }
 set :keep_releases, 5
 
 namespace :deploy do
