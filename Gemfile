@@ -13,12 +13,7 @@ gem 'geoip'
 
 gem "sass"
 gem 'rack-coffee'
-
-
-group :development do
-  gem 'therubyracer'
-end
-
+gem 'therubyracer'
 
 # other dependencies
 gem 'thin'
