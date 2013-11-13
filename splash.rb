@@ -12,24 +12,23 @@ class Splash < Sinatra::Base
   enable :sessions
   use Rack::Flash, :sweep => true
   
-  set :database_file, "database.yml"
+  set :database_file, "config/database.yml"
   
-  I18n.load_path += Dir[File.join(File.dirname(__FILE__), 'locales', '*.yml').to_s]
-
-  Geoip = GeoIP.new("GeoIP.dat")
-  
-  helpers do
-    def t(token)
-      I18n.t(token)
-    end
-  end
-  
-  before do
-    info = Geoip.country(request.env["REMOTE_ADDR"])
-    # info = Geoip.country('124.79.38.211')
-    
-    I18n.locale = %w(cn hk tw sg mo).include?(info.country_code2.downcase) ? 'zh' : 'en'
-  end
+  # I18n.load_path += Dir[File.join(File.dirname(__FILE__), 'locales', '*.yml').to_s]
+  # Geoip = GeoIP.new("GeoIP.dat")
+  #
+  # helpers do
+  #   def t(token)
+  #     I18n.t(token)
+  #   end
+  # end
+  #  
+  # before do
+  #   info = Geoip.country(request.env["REMOTE_ADDR"])
+  #   # info = Geoip.country('124.79.38.211')
+  #   
+  #   I18n.locale = %w(cn hk tw sg mo).include?(info.country_code2.downcase) ? 'zh' : 'en'
+  # end
   
   get '/' do
     @contact = Contact.new
