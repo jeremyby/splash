@@ -11,6 +11,4 @@ use Sass::Plugin::Rack
 # use coffeescript for javascript
 use Rack::Coffee, root: 'public', urls: '/javascripts'
 
-
-
 run Splash

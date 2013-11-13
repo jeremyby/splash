@@ -6,12 +6,11 @@ require 'geoip'
 require 'i18n'
 require './contact'
 
-
 class Splash < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   enable :sessions
   use Rack::Flash, :sweep => true
-  
+
   set :database_file, "config/database.yml"
   
   # I18n.load_path += Dir[File.join(File.dirname(__FILE__), 'locales', '*.yml').to_s]
